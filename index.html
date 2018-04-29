@@ -20,7 +20,11 @@
     </div>
     <div class="main">
         <div class="products">
-            <p>Products go here.</p>
+            <!-- v-on is responsible for event handling
+                 after the colon: type of event e.g. click, mouseenter, etc
+                 after the equal sign= javascript statement e.g. a data or method name -->
+            <button v-on:click="addItem">Add to cart</button>
+
         </div>
         <div class="cart">
             <h2>Shopping Cart</h2>
