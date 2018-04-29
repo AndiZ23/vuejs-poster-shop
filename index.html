@@ -20,10 +20,20 @@
     </div>
     <div class="main">
         <div class="products">
-            <!-- v-on is responsible for event handling
+            <!-- Directives: all starts with 'v-', e.g.:
+                 v-if -> a "if" statement
+                 v-bind: -> binding a variable to a HTML attribute ->
+
+            <!-- v-for is Vue's iterate statement -->
+            <div class="product" v-for="item in items">
+                <h4 class="product-title">{{ item.title }}</h4>
+                <!-- v-on is responsible for event handling
                  after the colon: type of event e.g. click, mouseenter, etc
                  after the equal sign= javascript statement e.g. a data or method name -->
-            <button v-on:click="addItem">Add to cart</button>
+                <button class="add-to-cart" v-on:click="addItem">Add to cart</button>
+            </div>
+
+
 
         </div>
         <div class="cart">

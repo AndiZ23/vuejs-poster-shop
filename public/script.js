@@ -1,7 +1,12 @@
 new Vue({
     el: '#app',  // the Vue will be attached in the #app dom.
     data: {
-        total: 0  // will use a {{total}} somewhere in the html
+        total: 0,  // will use a {{total}} somewhere in the html
+        items: [
+            { title: 'Item 1'},
+            { title: 'Item 2'},
+            { title: 'Item 3'}
+        ]
     },
     methods: {
         addItem: function() {
@@ -9,7 +14,3 @@ new Vue({
         }
     }
 });
-
-// Directives: all starts with 'v-'
-// v-if -> a "if" statement
-// v-bind: -> binding a variable to a HTML attribute
