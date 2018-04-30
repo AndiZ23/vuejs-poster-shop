@@ -1,3 +1,5 @@
+var PRICE = 9.99;
+
 new Vue({
     el: '#app',  // the Vue will be attached in the #app dom.
     data: {
@@ -11,7 +13,7 @@ new Vue({
     },
     methods: {
         addItem: function(index) {
-            this.total += 9.99; // referring to the var within the data of this Vue object
+            this.total += PRICE; // referring to the var within the data of this Vue object
             var item = this.items[index];
 
             // to find if the selected item has already been added in the cart.
@@ -28,7 +30,8 @@ new Vue({
                 this.cart.push({
                     id: item.id,
                     title: item.title,
-                    qty: 1
+                    qty: 1,
+                    price: PRICE
                 });
             }
         }

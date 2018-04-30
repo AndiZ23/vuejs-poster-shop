@@ -41,7 +41,7 @@
             <ul>
                 <li class="cart-item" v-for="item in cart">
                     <div class="item-title">{{item.title}}</div>
-                    <span class="item-qty">{{item.qty}}</span>
+                    <span class="item-qty">{{item.price}} x {{item.qty}}</span>
                 </li>
             </ul>
             <div v-if="cart.length"> <!-- the inside div will appear only if "v-if" is true -->
