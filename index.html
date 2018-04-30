@@ -41,11 +41,12 @@
             <ul>
                 <li class="cart-item" v-for="item in cart">
                     <div class="item-title">{{item.title}}</div>
-                    <span class="item-qty">{{item.price}} x {{item.qty}}</span>
+                    <!-- using a Filter to format the price -->
+                    <span class="item-qty">{{item.price | currency}} x {{item.qty}}</span>
                 </li>
             </ul>
             <div v-if="cart.length"> <!-- the inside div will appear only if "v-if" is true -->
-                <div>Total: {{ total }}</div>
+                <div>Total: {{ total | currency }}</div>
             </div>
             <div v-else class="empty-cart"> <!-- The Vue's style if-else -->
                 No items in the cart.
