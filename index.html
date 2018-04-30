@@ -43,6 +43,8 @@
                     <div class="item-title">{{item.title}}</div>
                     <!-- using a Filter to format the price -->
                     <span class="item-qty">{{item.price | currency}} x {{item.qty}}</span>
+                    <button class="btn" v-on:click="inc(item)">+</button>
+                    <button class="btn" v-on:click="dec(item)">-</button>
                 </li>
             </ul>
             <div v-if="cart.length"> <!-- the inside div will appear only if "v-if" is true -->

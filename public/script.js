@@ -34,6 +34,23 @@ new Vue({
                     price: PRICE
                 });
             }
+        },
+        inc: function(item){
+            item.qty++;
+            this.total += PRICE;
+        },
+        dec: function(item){
+            item.qty--;
+            this.total -= PRICE;
+            // but we need to prevent zero and minus qty
+            if(item.qty <=0){
+                for (var i=0; i<this.cart.length;i++){
+                    if(this.cart[i].id === item.id){
+                        this.cart.splice(i, 1); // remove from the list (by index and how many)
+                        break;
+                    }
+                }
+            }
         }
     },
     filters: {
