@@ -11,8 +11,8 @@ new Vue({
     },
     methods: {
         addItem: function(index) {
-            console.log(index);
             this.total += 9.99; // referring to the [total] of this Vue object
+            this.cart.push(this.items[index]);
         }
     }
 });
