@@ -20,7 +20,8 @@
         <!-- form in the Vue way: v-on:submit === action -->
         <!-- add the .prevent modifier to the submit event->the submit event will no longer reload the page  -->
         <form class="searchbar" v-on:submit.prevent="onSubmit">
-
+            <!-- v-model to attach a data property to the input value -->
+            <input v-model="search" type="text" placeholder="Search for posters">
             <input type="submit" value="Search" class="btn">
         </form>
     </div>
