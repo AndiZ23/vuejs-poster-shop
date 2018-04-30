@@ -3,16 +3,34 @@ new Vue({
     data: {
         total: 0,  // will use a {{total}} somewhere in the html
         items: [    // a list for the data property
-            { title: 'Item 1'},
-            { title: 'Item 2'},
-            { title: 'Item 3'}
+            { id:1, title: 'Item 1'},
+            { id:2, title: 'Item 2'},
+            { id:3, title: 'Item 3'}
         ],
         cart: []
     },
     methods: {
         addItem: function(index) {
-            this.total += 9.99; // referring to the [total] of this Vue object
-            this.cart.push(this.items[index]);
+            this.total += 9.99; // referring to the var within the data of this Vue object
+            var item = this.items[index];
+
+            // to find if the selected item has already been added in the cart.
+            var found = false;
+            for(var i=0; i<this.cart.length; i++){
+                if(this.cart[i].id === item.id) {
+                    found = true;
+                    this.cart[i].qty++;
+                }
+            }
+
+            // if it's not in cart, push it in
+            if(!found){
+                this.cart.push({
+                    id: item.id,
+                    title: item.title,
+                    qty: 1
+                });
+            }
         }
     }
 });
