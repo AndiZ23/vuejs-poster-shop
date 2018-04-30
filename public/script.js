@@ -12,6 +12,9 @@ new Vue({
         cart: []
     },
     methods: {
+        onSubmit: function(){
+            console.log('onsubmit');
+        },
         addItem: function(index) {
             this.total += PRICE; // referring to the var within the data of this Vue object
             var item = this.items[index];
@@ -22,6 +25,7 @@ new Vue({
                 if(this.cart[i].id === item.id) {
                     found = true;
                     this.cart[i].qty++;
+                    break;
                 }
             }
 

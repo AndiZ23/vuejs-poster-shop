@@ -17,6 +17,12 @@
 <div id="app">
     <div class="header">
         <h1>Vue.js Poster Store</h1>
+        <!-- form in the Vue way: v-on:submit === action -->
+        <!-- add the .prevent modifier to the submit event->the submit event will no longer reload the page  -->
+        <form class="searchbar" v-on:submit.prevent="onSubmit">
+
+            <input type="submit" value="Search" class="btn">
+        </form>
     </div>
     <div class="main">
         <div class="products">
@@ -30,7 +36,7 @@
                 <!-- v-on is responsible for event handling
                  after the colon: type of event e.g. click, mouseenter, etc
                  after the equal sign= javascript statement e.g. a data or method name -->
-                <button class="add-to-cart" v-on:click="addItem(index)">Add to cart</button>
+                <button class="add-to-cart btn" v-on:click="addItem(index)">Add to cart</button>
             </div>
 
 
@@ -41,7 +47,7 @@
             <ul>
                 <li class="cart-item" v-for="item in cart">
                     <div class="item-title">{{item.title}}</div>
-                    <!-- using a Filter to format the price -->
+                    <!-- using a Vue Filter to format the price -->
                     <span class="item-qty">{{item.price | currency}} x {{item.qty}}</span>
                     <button class="btn" v-on:click="inc(item)">+</button>
                     <button class="btn" v-on:click="dec(item)">-</button>
