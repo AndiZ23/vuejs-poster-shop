@@ -12,4 +12,4 @@ Modifier for events: v-on:[event].[modifier], e.g.:
     v-on:submit.prevent -> the submit event will no longer reload the page
 
 Filters: {{ [data-property | filter-method] }}
-    can be used for display formatting.
+    can be used for display formatting. 
