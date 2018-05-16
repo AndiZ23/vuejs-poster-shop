@@ -14,7 +14,11 @@ new Vue({
     },
     methods: {
         onSubmit: function(){
-            console.log(this.search);
+            this.$http
+                .get('/search/'.concat('90s'))
+                .then(function(res) {
+                    console.log(res);
+                });
         },
         addItem: function(index) {
             this.total += PRICE; // referring to the var within the data of this Vue object

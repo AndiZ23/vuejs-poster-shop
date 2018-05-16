@@ -12,4 +12,8 @@ Modifier for events: v-on:[event].[modifier], e.g.:
     v-on:submit.prevent -> the submit event will no longer reload the page
 
 Filters: {{ [data-property | filter-method] }}
-    can be used for display formatting. 
+    can be used for display formatting.
+
+Vue-resource: a third-party lib to make HTTP requests (get, post, ajax...)
+    should be imported: source at https://github.com/pagekit/vue-resource
+    call by "this.$http"
