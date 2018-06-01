@@ -33,11 +33,19 @@
 
             <!-- v-for is Vue's iterate statement -->
             <div class="product" v-for="(item,index) in items"> <!-- item and index are (v, k) to the list-->
-                <h4 class="product-title">{{ item.title }}</h4>
-                <!-- v-on is responsible for event handling
-                 after the colon: type of event e.g. click, mouseenter, etc
-                 after the equal sign= javascript statement e.g. a data or method name -->
-                <button class="add-to-cart btn" v-on:click="addItem(index)">Add to cart</button>
+                <div>
+                    <div class="product-image">
+                        <!-- v-bind will bind the js property to an HTML attr or property -->
+                        <img v-bind:src="item.link">
+                    </div>
+                </div>
+                <div>
+                    <h4 class="product-title">{{ item.title }}</h4>
+                    <!-- v-on is responsible for event handling
+                     after the colon: type of event e.g. click, mouseenter, etc
+                     after the equal sign= javascript statement e.g. a data or method name -->
+                    <button class="add-to-cart btn" v-on:click="addItem(index)">Add to cart</button>
+                </div>
             </div>
 
 

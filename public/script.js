@@ -4,11 +4,7 @@ new Vue({
     el: '#app',  // the Vue will be attached in the #app dom.
     data: {
         total: 0,  // will use a {{total}} somewhere in the html
-        items: [    // a list for the data property
-            { id:1, title: 'Item 1'},
-            { id:2, title: 'Item 2'},
-            { id:3, title: 'Item 3'}
-        ],
+        items: [],   // a list for the data property
         cart: [],
         search: ''
     },
@@ -17,7 +13,7 @@ new Vue({
             this.$http
                 .get('/search/'.concat('90s'))
                 .then(function(res) {
-                    console.log(res);
+                    this.items = res.data;
                 });
         },
         addItem: function(index) {
