@@ -7,16 +7,22 @@ new Vue({
         items: [],   // a list for the data property
         cart: [],
         newSearch: '',
-        lastSearch: ''
+        lastSearch: '',
+        loading: false
     },
     methods: {
         onSubmit: function(){
+            //before do the ajax call, we should empty out the items list
+            // --> to give some visualized feedback that the system is reloading the search
+            this.items=[];
+            this.loading = true;
+
             this.$http
                 .get('/search/'.concat(this.newSearch))
                 .then(function(res) {
                     this.lastSearch = this.newSearch;
                     this.items = res.data;
-                    console.log(res.data);
+                    this.loading=false;
                 });
         },
         addItem: function(index) {
