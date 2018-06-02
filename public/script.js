@@ -6,7 +6,7 @@ new Vue({
         total: 0,  // will use a {{total}} somewhere in the html
         items: [],   // a list for the data property
         cart: [],
-        newSearch: '',
+        newSearch: 'anime', // Use 'anime' as the default search
         lastSearch: '',
         loading: false
     },
@@ -71,5 +71,12 @@ new Vue({
         currency: function(price){
             return '$'.concat(price.toFixed(2));
         }
+    },
+    mounted: function(){
+        // mounted: a part of a Vue instance lifecycle:
+        //  - mount the instance to the DOM,
+        //  - update the DOM when data changes
+        // mounted functions will be called after the instance has been mounted.
+        this.onSubmit();
     }
 });
