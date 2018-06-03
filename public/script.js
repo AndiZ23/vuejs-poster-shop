@@ -8,7 +8,8 @@ new Vue({
         cart: [],
         newSearch: 'anime', // Use 'anime' as the default search
         lastSearch: '',
-        loading: false
+        loading: false,
+        price: PRICE
     },
     methods: {
         onSubmit: function(){
