@@ -1,3 +1,5 @@
+Vue Essentials
+
 Directives: all starts with 'v-', e.g.:
     v-if -> a "if" statement; likewise, v-else
     v-bind: -> binding a variable to a HTML attribute
@@ -18,6 +20,24 @@ Mounted: a part of a Vue instance lifecycle:
     mount the instance to the DOM,
     update the DOM when data changes
     mounted functions will be called after the instance has been mounted.
+
+Transitions: The transition effects when items are inserted, updated, or removed from the DOM.
+    Used with v-if, v-show, etc.
+    1. <transition></transition> in HTML, then Vue will see whether has CSS transitions or
+    animations applied. If it does, use them.
+    2. In CSS, four classes applied are: v-enter, v-enter-active, v-leave, v-leave-active
+    3. If <transition> has a "name" attr, the "v" in the class names is replaced with the
+    name value.
+    E.g.:
+    HTML -- <transition name="fade"> </transition>
+    CSS -- .fade-enter-active {
+               transition: opacity .5s
+           }
+           .fade-enter, .fade-leave-active {
+               opacity: 0
+           }
+
+---
 
 Vue-resource: a third-party lib to make HTTP requests (get, post, ajax...)
     should be imported: source at https://github.com/pagekit/vue-resource

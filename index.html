@@ -67,10 +67,14 @@
                     <button class="btn" v-on:click="dec(item)">-</button>
                 </li>
             </ul>
-            <div v-if="cart.length"> <!-- the inside div will appear only if "v-if" is true -->
-                <div>Total: {{ total | currency }}</div>
-            </div>
-            <div v-else class="empty-cart"> <!-- The Vue's style if-else -->
+
+            <!-- Use Vue's transition for the Shopping Cart-->
+            <transition name="fade">
+                <div v-if="cart.length"> <!-- the inside div will appear only if "v-if" is true -->
+                    <div>Total: {{ total | currency }}</div>
+                </div>
+            </transition>
+            <div v-if="cart.length===0" class="empty-cart"> <!-- The Vue's style if-else -->
                 No items in the cart.
             </div>
         </div>
