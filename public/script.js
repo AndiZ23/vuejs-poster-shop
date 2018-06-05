@@ -1,4 +1,5 @@
 var PRICE = 9.99;
+var LOAD_NUM = 10;
 
 new Vue({
     el: '#app',  // the Vue will be attached in the #app dom.
@@ -6,6 +7,7 @@ new Vue({
         total: 0,  // will use a {{total}} somewhere in the html
         items: [],   // a list for the data property
         cart: [],
+        results: [],
         newSearch: 'anime', // Use 'anime' as the default search
         lastSearch: '',
         loading: false,
@@ -22,7 +24,8 @@ new Vue({
                 .get('/search/'.concat(this.newSearch))
                 .then(function(res) {
                     this.lastSearch = this.newSearch;
-                    this.items = res.data;
+                    this.results = res.data;
+                    this.items = this.results.slice(0,LOAD_NUM); // JS' slice function for array
                     this.loading=false;
                 });
         },
@@ -80,4 +83,10 @@ new Vue({
         // mounted functions will be called after the instance has been mounted.
         this.onSubmit();
     }
+});
+
+var elem = document.getElementById("product-list-bottom");
+var watcher = scrollMonitor.create(elem);
+watcher.enterViewport(function() {
+   console.log('Entered Viewport');
 });
