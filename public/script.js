@@ -14,6 +14,12 @@ new Vue({
         price: PRICE
     },
     methods: {
+        appendItems: function() { //load 10 more items if reach the page bottom
+            if(this.items.length < this.results.length){
+                var append = this.results.slice(this.items.length, this.items.length+LOAD_NUM); // JS' slice function for array
+                this.items = this.items.concat(append);
+            }
+        },
         onSubmit: function(){
             //before do the ajax call, we should empty out the items list
             // --> to give some visualized feedback that the system is reloading the search
@@ -25,7 +31,7 @@ new Vue({
                 .then(function(res) {
                     this.lastSearch = this.newSearch;
                     this.results = res.data;
-                    this.items = this.results.slice(0,LOAD_NUM); // JS' slice function for array
+                    this.appendItems();
                     this.loading=false;
                 });
         },
@@ -82,11 +88,14 @@ new Vue({
         //  - update the DOM when data changes
         // mounted functions will be called after the instance has been mounted.
         this.onSubmit();
+
+        var vueInstance = this;
+        var elem = document.getElementById("product-list-bottom");
+        var watcher = scrollMonitor.create(elem);
+        watcher.enterViewport(function() {
+            vueInstance.appendItems();
+            // can't use "this.appendItems();" since the "this" within the callback is not THIS Vue object
+        });
     }
 });
 
-var elem = document.getElementById("product-list-bottom");
-var watcher = scrollMonitor.create(elem);
-watcher.enterViewport(function() {
-   console.log('Entered Viewport');
-});
