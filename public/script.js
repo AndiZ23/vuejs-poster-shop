@@ -42,7 +42,7 @@ new Vue({
 
             // if it's not in cart, push it in
             if(!found){
-                this.cart.push({
+                this.cart.push({ // an object with 4 data properties
                     id: item.id,
                     title: item.title,
                     qty: 1,
