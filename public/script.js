@@ -94,7 +94,7 @@ new Vue({
         var watcher = scrollMonitor.create(elem);
         watcher.enterViewport(function() {
             vueInstance.appendItems();
-            // can't use "this.appendItems();" since the "this" within the callback is not THIS Vue object
+            // can't use "this.appendItems();" since the "this" within the callback is watcher, not THIS Vue object
         });
     }
 });
