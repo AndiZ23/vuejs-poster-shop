@@ -47,6 +47,10 @@ Transition Group: It's used for a list, while transition is used for a single el
 List Rendering: to identify each item in the list, bind a unique key with v-bind:key
     id is an ideal key to bind.
     It's recommended to provide a key with v-for whenever possible.
+
+Computed properties: computed variables, use functions to compute a property with existing properties
+    Can be bind to html after v-if, ...
+
 ---
 
 Vue-resource: a third-party lib to make HTTP requests (get, post, ajax...)

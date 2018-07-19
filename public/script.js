@@ -13,6 +13,11 @@ new Vue({
         loading: false,
         price: PRICE
     },
+    computed: { // computed properties use function to compute the property, and bind to html
+        noMoreItems: function() {
+            return this.results.length === this.items.length && this.results.length>0;
+        }
+    },
     methods: {
         appendItems: function() { //load 10 more items if reach the page bottom
             if(this.items.length < this.results.length){
