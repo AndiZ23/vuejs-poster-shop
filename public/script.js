@@ -26,19 +26,22 @@ new Vue({
             }
         },
         onSubmit: function(){
-            //before do the ajax call, we should empty out the items list
-            // --> to give some visualized feedback that the system is reloading the search
-            this.items=[];
-            this.loading = true;
+            // only trigger new search in only there's something in the search bar
+            if (this.newSearch.length){
+                //before do the ajax call, we should empty out the items list
+                // --> to give some visualized feedback that the system is reloading the search
+                this.items=[];
+                this.loading = true;
 
-            this.$http
-                .get('/search/'.concat(this.newSearch))
-                .then(function(res) {
-                    this.lastSearch = this.newSearch;
-                    this.results = res.data;
-                    this.appendItems();
-                    this.loading=false;
-                });
+                this.$http
+                    .get('/search/'.concat(this.newSearch))
+                    .then(function(res) {
+                        this.lastSearch = this.newSearch;
+                        this.results = res.data;
+                        this.appendItems();
+                        this.loading=false;
+                    });
+            }
         },
         addItem: function(index) {
             this.total += PRICE; // referring to the var within the data of this Vue object

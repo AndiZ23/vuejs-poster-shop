@@ -14,7 +14,7 @@
     <link rel="stylesheet" type="text/css" href="public/style.css">
 </head>
 <body>
-<div id="app">
+<div id="app" v-cloak> <!-- works with css [v-cloak] display none, it prevent showing vue templates until the loading's finished -->
     <div class="header">
         <h1>Vue.js Poster Store</h1>
         <!-- form in the Vue way: v-on:submit === action -->
